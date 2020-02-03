@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zxx" class="no-js">
+        <HEAD>
+            <META HTTP-EQUIV="Content-Type" content="text/html; charset=utf-8">
+			<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+			<script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+			<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+        </HEAD>
+        <BODY >
+            <FORM NAME="frmeing" METHOD="POST">
+                <br><hr><br><div dir="ltr">  Hi Peter,<div><br></div><div>I have fixed payment post batch duplication issue. It throws alerts for both success and duplication entries. After that page got refreshed  automatically. </div><div><br></div>
+                <div id="plain_text" onload="myFunction(this.value)">
+	         		<pre> Hi Xoffice,
+	         			  This is test mail with emojiðð...
+	   				</pre>
+         	    </div>
+                <div>Please check --&gt; <a href="https://dev02.xoffice.us/invoice/payments/batch" target="_blank">https://dev02.xoffice.us/invoice/payments/batch</a></div><div><br></div><div>Let me know if any issue.</div><font color="#888888"><div><br></div></font><div><br></div>-- <br><div dir="ltr" class="gmail_signature" data-smartmail="gmail_signature"><div dir="ltr"><div><div dir="ltr"><div dir="ltr"><b><i>Regards</i></b><div><b><i><br></i></b></div><div><b><i>Vignesh.S</i></b></div><div><b><i>Software Engineer</i></b></div></div></div></div></div></div></div>
+            </FORM>
+        </BODY>
+        <script type="text/javascript">
+		var $var;
+        	$(document).ready(function(){
+        		$var = $('#plain_text').text();
+        		myFunction($var);	
+		}); 
+		function myFunction($var) {
+			var ranges = [
+                                '\ud83c[\udf00-\udfff]', // U+1F300 to U+1F3FF
+                                '\ud83d[\udc00-\ude4f]', // U+1F400 to U+1F64F
+                                '\ud83d[\ude80-\udeff]' , // U+1F680 to U+1F6FF
+                                  	'Å',
+					'œ',
+					'Þ',
+					'ø',
+					'æ',
+					'ñ',
+					'ð'
+                         ];
+			var str; 
+			str=$var;
+			str = str.replace(new RegExp(ranges.join('|'), 'g'), '');
+			$('#plain_text').text(str);
+		}
+        </script>
+    </HTML>
